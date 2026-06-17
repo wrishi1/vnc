@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vivekananda - Club  Maynaguri, Jalpaiguri</title>
+    
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background:#f5f5f5;
+        }
+
+        header{
+            height: 160px;
+            background:#ff6b00;
+            color:white;
+            padding:30px;
+            display:flex;
+            align-items:center;
+            justify-content:flex-start;
+            gap:25px;
+        }
+        .logo{
+            width:180px;
+            height:180px;
+            border-radius:50%;
+            object-fit:cover;
+}
+
+        nav{
+            background:#222;
+            padding:15px;
+            text-align:center;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin:0 40px;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+           
+            border-radius:20px;
+            box-shadow:0 8px 50px #ff6b00;
+        }
+
+        .hero{
+            height:650px;
+            background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+            url('pu4.jpeg');
+            background-size:cover;
+            background-position:center 20%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            color:white;
+            
+        }
+        
+
+        .hero h2{
+            font-size:45px;
+            margin-top: 80px;
+        }
+
+        section{
+            padding:50px 10%;
+        }
+
+        .card-container{
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+            flex:1;
+            min-width:250px;
+        }
+        .card:hover{
+            background: #ff6b00;
+            color: white;
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+        footer{
+            background:#222;
+            color:white;
+            text-align:center;
+            padding:20px;
+            margin-top:30px;
+        }
+
+        .btn{
+            display:inline-block;
+            margin-top:15px;
+            padding:10px 20px;
+            background:#ff6b00;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .btn:hover{
+            background:#e65c00;
+        }
+        .popup-form{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    z-index:1000;
+}
+
+.form-content{
+    background:white;
+    width:500px;
+    max-width:90%;
+    margin:50px auto;
+    padding:30px;
+    border-radius:10px;
+}
+
+.close-btn{
+    float:right;
+    font-size:30px;
+    cursor:pointer;
+}
+
+.form-content input,
+.form-content textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+}
+    </style>
+</head>
+<div id="membershipForm" class="popup-form">
+
+    <div class="form-content">
+        <span class="close-btn" onclick="closeForm()">&times;</span>
+
+        <h2>Membership Form</h2>
+
+        <form id="memberForm">
+
+<input type="text" name="first_name" placeholder="First Name" required>
+
+<input type="text" name="last_name" placeholder="Last Name" required>
+
+<input type="text" name="father_first" placeholder="Father First Name" required>
+
+<input type="text" name="father_last" placeholder="Father Last Name" required>
+
+<input type="text" name="mother_name" placeholder="Mother Name" required>
+
+<input type="date" name="dob" required>
+
+<textarea name="address" placeholder="Address" required></textarea>
+
+<input type="tel" name="whatsapp" placeholder="WhatsApp Number" required>
+
+<input type="email" name="email" placeholder="Email Address" required>
+
+<input type="text"
+       name="aadhaar"
+       id="aadhaar"
+       maxlength="12"
+       placeholder="Aadhaar Number"
+       required>
+
+<button type="submit">Submit</button>
+
+</form>
+    </div>
+
+</div>
+<body>
+
+<header>
+    <img src="logo.png" alt="Swami Vivekananda" class="logo">
+
+    <div>
+        <h1 style="font-size:80px;">Vivekananda Club</h1>
+        <p style="font-size:25px;">Maynaguri, Jalpaiguri, West Bengal, 735224</p>
+    </div>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#activities">Activities</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero" id="home">
+    <div>
+        <h2>Welcome to Vivekananda Club</h2>
+        <p>Arise, awake and stop not till the goal is reached.</p>
+       <button class="btn" onclick="openForm()">Become a Member!</button>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About Our Club</h2>
+    <br>
+    <p>
+        Vivekananda Club, located in Maynaguri, Jalpaiguri, is a social,
+        cultural, and sports organization dedicated to community development,
+        youth empowerment, and social service activities. Inspired by the ideals
+        of Swami Vivekananda, the club actively participates in welfare programs,
+        festivals, and sports events.
+    </p>
+</section>
+
+<section id="activities">
+    <h2>Our Activities</h2>
+    <br>
+
+    <div class="card-container">
+       
+        <div class="card">
+            
+            <h3>Sports Events</h3>
+            <p>Organizing football, cricket, volleyball and local tournaments.</p>
+        </div>
+
+        <div class="card">
+            <h3>Cultural Programs</h3>
+            <p>Celebrating festivals, cultural events, and youth competitions.</p>
+        </div>
+
+        <div class="card">
+            <h3>Social Welfare</h3>
+            <p>Blood donation camps, environmental awareness, and community service.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <br>
+    <p><strong>Club Name:</strong> Vivekananda Club</p>
+    <p><strong>Location:</strong> Maynaguri, Jalpaiguri, West Bengal, India</p>
+    <p><strong>Email:</strong> info@vivekanandaclub.org</p>
+    <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+</section>
+
+<footer>
+    <p>© 2026 Vivekananda Club, Maynaguri, Jalpaiguri. All Rights Reserved.</p>
+</footer>
+<script>
+    function openForm(){
+        document.getElementById("membershipForm").style.display="block";
+    }
+
+    function closeForm(){
+        document.getElementById("membershipForm").style.display="none";
+    }
+    </script>
+
+    <!-- GOOGLE SHEETS SUBMISSION SCRIPT -->
+    <script>
+
+    document.getElementById("memberForm").addEventListener("submit", function(e){
+
+        e.preventDefault();
+
+        let aadhaar = document.getElementById("aadhaar").value;
+
+        if(!/^\d{12}$/.test(aadhaar)){
+            alert("Aadhaar Number must be exactly 12 digits");
+            return;
+        }
+
+        const formData = new FormData(this);
+
+        fetch("https://script.google.com/macros/s/AKfycbx3TbT4HvphD3IUPihuGP_tLZnihPm5ywKi9rJ-wg6AYtX3f-SKMwu5Jg4xfOmIFc1PUg/exec", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert("Membership Submitted Successfully");
+            document.getElementById("memberForm").reset();
+        })
+        .catch(error => {
+            alert("Submission Failed");
+        });
+
+    });
+
+    </script>
+</body>
+</html>
