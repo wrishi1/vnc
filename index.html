@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vivekananda - Club  Maynaguri, Jalpaiguri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     
 
     <style>
@@ -13,21 +14,41 @@
             box-sizing:border-box;
             font-family: Arial, sans-serif;
         }
+        .hero h2{
+    font-family: 'Cinzel', serif;
+    font-size: 55px;
+    margin-top: 80px;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
+}
 
         body{
             background:#f5f5f5;
         }
 
         header{
+            font-family:'Cinzel', serif;
             height: 160px;
             background:#ff6b00;
-            color:rgb(46, 4, 67);
+            color:rgb(4, 9, 67);
             padding:30px;
             display:flex;
             align-items:center;
             justify-content:flex-start;
             gap:25px;
         }
+        .club-title{
+    
+    font-family: 'Cinzel', serif;
+    font-size: 45px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.1;
+}
+.club-address{
+    font-size:13px;
+}
+
         .logo{
             width:180px;
             height:180px;
@@ -42,17 +63,21 @@
         }
 
         nav a{
-            color:white;
-            text-decoration:none;
-            margin:0 40px;
-            font-weight:bold;
-        }
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-weight:bold;
+    padding:10px 20px;
+    border-radius:30px;
+    transition:0.4s ease;
+    display:inline-block;
+}
 
-        nav a:hover{
-           
-            border-radius:20px;
-            box-shadow:0 8px 50px #ff6b00;
-        }
+nav a:hover{
+    background:#ff6b00;
+    transform:scale(1.1);
+    box-shadow:0 0 15px rgba(255,107,0,0.8);
+}
 
         .hero{
             height:650px;
@@ -109,27 +134,29 @@
 
         .btn{
             display:inline-block;
-            margin-top:15px;
-            padding:10px 20px;
-            background:#ff6b00;
-            color:white;
-            text-decoration:none;
-            border-radius:5px;
+    margin-top:20px;
+    padding:15px 35px;
+    background:linear-gradient(45deg, #ff6b00, #ffae00);
+    color:rgb(6, 4, 77);
+    text-decoration:none;
+    border-radius:50px;
+    font-size:20px;
+    font-weight:bold;
+    letter-spacing:1px;
+    box-shadow:0 5px 15px rgba(255,107,0,0.5);
+    transition:all 0.3s ease;
         }
 
         .btn:hover{
-            background:#e65c00;
+             transform:translateY(-5px) scale(1.05);
+    box-shadow:0 10px 25px rgba(255,107,0,0.8);
+    background:linear-gradient(45deg, #ff8c00, #ffc107);
+    color:white;
         }
-        .popup-form{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.7);
-    z-index:1000;
+        .btn:active{
+    transform:scale(0.98);
 }
+        
 
 .form-content{
     background:white;
@@ -152,46 +179,146 @@
     padding:10px;
     margin-top:5px;
 }
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* Tablet */
+@media screen and (max-width: 1024px){
+
+    header{
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .logo{
+        width: 140px;
+        height: 140px;
+    }
+
+    .club-title{
+        font-size: 45px;
+    }
+
+    .club-address{
+        font-size: 16px;
+    }
+
+    .hero h2{
+        font-size: 40px;
+    }
+
+    nav a{
+        margin: 0 10px;
+        font-size: 16px;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px){
+
+    header{
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        padding: 15px;
+        height: auto;
+    }
+
+    .logo{
+        width: 120px;
+        height: 120px;
+    }
+
+    .club-title{
+        font-size: 32px;
+    }
+
+    .club-address{
+        font-size: 14px;
+    }
+
+    nav{
+        padding: 10px;
+    }
+
+    nav a{
+        display: block;
+        margin: 10px 0;
+        font-size: 16px;
+    }
+
+    .hero{
+        height: 500px;
+        padding: 20px;
+    }
+
+    .hero h2{
+        font-size: 28px;
+        margin-top: 20px;
+    }
+
+    .hero p{
+        font-size: 16px;
+    }
+
+    .btn{
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+
+    section{
+        padding: 30px 5%;
+    }
+
+    .card-container{
+        flex-direction: column;
+    }
+
+    .card{
+        width: 100%;
+    }
+}
+
+/* Small Phones */
+@media screen and (max-width: 480px){
+
+    .logo{
+        width: 100px;
+        height: 100px;
+    }
+
+    .club-title{
+        font-size: 26px;
+    }
+
+    .club-address{
+        font-size: 12px;
+    }
+
+    .hero{
+        height: 450px;
+    }
+
+    .hero h2{
+        font-size: 22px;
+    }
+
+    .hero p{
+        font-size: 14px;
+    }
+
+    .btn{
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
     </style>
 </head>
-<div id="membershipForm" class="popup-form">
 
-    <div class="form-content">
-        <span class="close-btn" onclick="closeForm()">&times;</span>
-
-        <h2>Membership Form</h2>
-
-        <form id="memberForm">
-
-<input type="text" name="first_name" placeholder="First Name" required>
-
-<input type="text" name="last_name" placeholder="Last Name" required>
-
-<input type="text" name="father_first" placeholder="Father First Name" required>
-
-<input type="text" name="father_last" placeholder="Father Last Name" required>
-
-<input type="text" name="mother_name" placeholder="Mother Name" required>
-
-<input type="date" name="dob" required>
-
-<textarea name="address" placeholder="Address" required></textarea>
-
-<input type="tel" name="whatsapp" placeholder="WhatsApp Number" required>
-
-<input type="email" name="email" placeholder="Email Address" required>
-
-<input type="text"
-       name="aadhaar"
-       id="aadhaar"
-       maxlength="12"
-       placeholder="Aadhaar Number"
-       required>
-
-<button type="submit">Submit</button>
-
-</form>
-    </div>
 
 </div>
 <body>
@@ -200,8 +327,13 @@
     <img src="logo.png" alt="Swami Vivekananda" class="logo">
 
     <div>
-        <h1 style="font-size:75px;">Vivekananda Club<h1 style="font-size: 15px;">(ESTD:1972)</h1></h1>
-        <p style="font-size:25px;">Maynaguri, Jalpaiguri, West Bengal, 735224</p>
+        <h1 class="club-title">
+    Vivekananda Club
+    <span style="font-size:15px;">(ESTD: 1972)</span>
+</h1>
+       <p class="club-address">
+    Maynaguri, Jalpaiguri, West Bengal, 735224
+</p>
     </div>
 </header>
 
@@ -216,7 +348,9 @@
     <div>
         <h2>Welcome to Vivekananda Club</h2>
         <p>Arise, awake and stop not till the goal is reached.</p>
-       <button class="btn" onclick="openForm()">Become a Member!</button>
+       <a href="https://forms.gle/ERSRrcWduVJndH9YA" target="_blank" class="btn">
+    Become a Member!
+</a>
     </div>
 </section>
 
@@ -260,7 +394,7 @@
 <section id="contact">
     <h2>Contact Us</h2>
     <br>
-    <p><strong>Club Name:</strong> Vivekananda Club</p>
+    <p><strong>Club Name:</strong> Vivekananda club
     <p><strong>Location:</strong> Maynaguri, Jalpaiguri, West Bengal, India</p>
     <p><strong>Email:</strong> info@vivekanandaclub.org</p>
     <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
