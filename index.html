@@ -602,9 +602,7 @@ nav{
 
 </div>
 </section>
-<section id="contact">
-    ...
-</section>
+
 
 <!-- SIGNUP POPUP -->
 <div class="signup-popup" id="signupPopup">
@@ -628,9 +626,11 @@ nav{
                placeholder="Phone Number"
                maxlength="10">
 
-        <button onclick="continueForm()">
-            Continue
-        </button>
+        <button type="button"
+        class="continue-btn"
+        onclick="continueForm(event)">
+    Continue
+</button>
 
     </div>
 
@@ -688,32 +688,32 @@ window.googleLogin = function () {
     });
 }
 
-window.continueForm = function () {
+window.continueForm = function(event) {
+
+    if(event){
+        event.preventDefault();
+    }
+
     let phone = document.getElementById("phone").value;
 
-    if(phone.length != 10){
-        alert("Enter a valid 10-digit phone number");
+    if(phone.length !== 10){
+        alert("Enter a valid phone number");
         return;
     }
 
     window.open(
-      "https://forms.gle/ERSRrcWduVJndH9YA",
-      "_blank"
+        "https://forms.gle/ERSRrcWduVJndH9YA",
+        "_blank"
     );
 
-    document.getElementById("signupPopup").style.display = "none";
-}
+};
+</script>
 <script>
 function toggleMenu(){
     document.getElementById("navLinks").classList.toggle("active");
 }
+</script>
 
-</script>
-<script>
-function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("active");
-}
-</script>
 
 </body>
 </html>
