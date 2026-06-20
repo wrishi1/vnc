@@ -321,6 +321,50 @@ nav a:hover{
         padding: 10px 20px;
     }
 }
+
+.signup-popup{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.signup-box{
+    width:350px;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.signup-box h2{
+    margin-bottom:20px;
+}
+
+.signup-box input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.signup-box button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#ff6b00;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
     </style>
 </head>
 
@@ -353,9 +397,9 @@ nav a:hover{
     <div>
         <h2>Welcome to Vivekananda Club</h2>
         <p>Arise, awake and stop not till the goal is reached.</p>
-       <a href="https://forms.gle/ERSRrcWduVJndH9YA" target="_blank" class="btn">
+       <button class="btn" onclick="googleLogin()">
     Become a Member!
-</a>
+</button>
     </div>
 </section>
 
@@ -404,51 +448,101 @@ nav a:hover{
     <p><strong>Email:</strong> info@vivekanandaclub.org</p>
     <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
 </section>
+<section id="contact">
+    ...
+</section>
+
+<!-- SIGNUP POPUP -->
+<div class="signup-popup" id="signupPopup">
+
+    <div class="signup-box">
+
+        <h2>Member Registration</h2>
+
+        <input type="text"
+               id="name"
+               placeholder="Name"
+               readonly>
+
+        <input type="email"
+               id="email"
+               placeholder="Email"
+               readonly>
+
+        <input type="tel"
+               id="phone"
+               placeholder="Phone Number"
+               maxlength="10">
+
+        <button onclick="continueForm()">
+            Continue
+        </button>
+
+    </div>
+
+</div>
 
 <footer>
     <p>© 2026 Vivekananda Club, Maynaguri, Jalpaiguri. All Rights Reserved.</p>
 </footer>
-<script>
-    function openForm(){
-        document.getElementById("membershipForm").style.display="block";
-    }
 
-    function closeForm(){
-        document.getElementById("membershipForm").style.display="none";
-    }
-    </script>
+<footer>
+    <p>© 2026 Vivekananda Club, Maynaguri, Jalpaiguri. All Rights Reserved.</p>
+</footer>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-    <!-- GOOGLE SHEETS SUBMISSION SCRIPT -->
-    <script>
+const firebaseConfig = {
+  apiKey: "AIzaSyCKuISSxv2w1Q1u9cd4Kj1-0u7521tAGmE",
+  authDomain: "vivekananda-club.firebaseapp.com",
+  projectId: "vivekananda-club",
+  storageBucket: "vivekananda-club.firebasestorage.app",
+  messagingSenderId: "1006991551950",
+  appId: "1:1006991551950:web:cdc76c144aa21bf1240f9f",
+  measurementId: "G-GSJP3MT8NT"
+};
 
-    document.getElementById("memberForm").addEventListener("submit", function(e){
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
-        e.preventDefault();
+window.googleLogin = function () {
+    signInWithPopup(auth, provider)
+    .then((result) => {
+        const user = result.user;
 
-        let aadhaar = document.getElementById("aadhaar").value;
+        document.getElementById("name").value = user.displayName;
+        document.getElementById("email").value = user.email;
 
-        if(!/^\d{12}$/.test(aadhaar)){
-            alert("Aadhaar Number must be exactly 12 digits");
-            return;
-        }
-
-        const formData = new FormData(this);
-
-        fetch("https://script.google.com/macros/s/AKfycbx3TbT4HvphD3IUPihuGP_tLZnihPm5ywKi9rJ-wg6AYtX3f-SKMwu5Jg4xfOmIFc1PUg/exec", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            alert("Membership Submitted Successfully");
-            document.getElementById("memberForm").reset();
-        })
-        .catch(error => {
-            alert("Submission Failed");
-        });
-
+        document.getElementById("signupPopup").style.display = "flex";
+    })
+    .catch((error) => {
+        alert(error.message);
     });
+}
 
-    </script>
+window.continueForm = function () {
+    let phone = document.getElementById("phone").value;
+
+    if(phone.length != 10){
+        alert("Enter a valid 10-digit phone number");
+        return;
+    }
+
+    window.open(
+      "https://forms.gle/ERSRrcWduVJndH9YA",
+      "_blank"
+    );
+
+    document.getElementById("signupPopup").style.display = "none";
+}
+</script>
+
+
 </body>
 </html>
